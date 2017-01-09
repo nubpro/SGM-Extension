@@ -1,0 +1,16 @@
+#taigachat_message {
+	background: #202020;
+}
+
+#taigachat_message:focus {
+	background: #202020;
+	border-color: #404040;
+}
+
+#taigachat_toolbar .shoutboxHandle {
+	background: no-repeat center;
+	width: 19px;
+	height: 21px;
+	display: block;
+	cursor: s-resize;
+}
