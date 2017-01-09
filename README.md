@@ -2,7 +2,7 @@
 
 Additional features made available for SeriousGMOD Forum (http://seriousgmod.com).
 
-The extension is available at Chrome web store:
+#The extension is available at Chrome web store:
 https://chrome.google.com/webstore/detail/seriousgmod-shoutbox-exte/dmbpihmdkiieiknjnlgebnacmleljcao
 
 For more information:
