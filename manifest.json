@@ -5,30 +5,44 @@
   "description": "Shoutbox height is adjustable to meet your needs, preview personal chat color before applying and couple of annoying stuff fixed.",
   "version": "1.6.1",
 
-  "icons": { 
-	  "128": "icon_128.png" 
+  "icons": {
+    "128": "icon_128.png"
   },
- 
-  "content_scripts": [
-    {
+
+  "background": {
+    "scripts": ["https.js"],
+    "persistent": true
+  },
+
+  "content_scripts": [{
       "matches": ["*://*.seriousgmod.com/"],
       "js": ["shoutbox.js", "shared.js"],
-	  "css": ["style.css"],
-	  "run_at": "document_end"
+      "css": ["style.css"],
+      "run_at": "document_end"
     },
     {
       "matches": ["*://*.seriousgmod.com/chat/*"],
       "js": ["shared.js"],
-	  "css": ["style.css"],
-	  "run_at": "document_end"
+      "css": ["style.css"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["*://*.seriousgmod.com/*"],
+      "js": ["third_party/jquery-3.1.1.min.js", "steam.js"],
+      "run_at": "document_end"
     }
   ],
 
   "web_accessible_resources": [
-	"icon.png"
+    "icon.png"
   ],
-  
+
   "permissions": [
-	"storage"
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "*://*.seriousgmod.com/",
+    "*://*.seriousgmod.com/*",
+    "https://sgmod.ext.steam.zikeji.com/"
   ]
 }
