@@ -48,8 +48,10 @@ document.onmousemove = function(e) {
 }
 
 document.onmouseup = function(e) {
-	resizing =  false
-	chrome.storage.sync.set({"shoutbox_Height": shoutbox.style.height})
+	if (resizing) {
+		resizing =  false
+		chrome.storage.sync.set({"shoutbox_Height": shoutbox.style.height})
+	}
 }
 
 chrome.storage.sync.get("shoutbox_Height", function(result) {
