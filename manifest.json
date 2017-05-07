@@ -1,17 +1,12 @@
 {
   "manifest_version": 2,
 
-  "name": "SeriousGMOD Shoutbox Extended",
-  "description": "Shoutbox height is adjustable to meet your needs, preview personal chat color before applying and couple of annoying stuff fixed.",
-  "version": "1.6.2",
+  "name": "SGM+",
+  "description": "Additional features for SGM Community Forum (www.seriousgmod.com)",
+  "version": "1.7.2",
 
   "icons": {
-    "128": "icon_128.png"
-  },
-
-  "background": {
-    "scripts": ["https.js"],
-    "persistent": true
+	"128": "icon_128.png"
   },
 
   "content_scripts": [{
@@ -39,10 +34,6 @@
 
   "permissions": [
     "storage",
-    "webRequest",
-    "webRequestBlocking",
-    "*://*.seriousgmod.com/",
-    "*://*.seriousgmod.com/*",
     "https://sgmod.ext.steam.zikeji.com/"
   ]
 }
