@@ -61,3 +61,8 @@ if (colorpicker) {
 
 }
 /** END OF PREVIEW CHAT COLOR **/
+
+/** TEMPORARY SCROLL ANCHOR FIX **/
+var shoutbox = document.getElementById("taigachat_box")
+shoutbox.style.cssText = "overflow-anchor: none; height: " + shoutbox.style.height + "px;";
+/** END OF SCROLL ANCHOR FIX **/
