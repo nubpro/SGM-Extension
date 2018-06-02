@@ -1,4 +1,4 @@
-/** PREVIEW CHAT COLOR **/
+/** Chat Color **/
 function getRandomArbitrary(min, max) {
 	return Math.floor(Math.random() * (max - min +1)) + min
 }
@@ -60,9 +60,8 @@ if (colorpicker) {
 	}
 
 }
-/** END OF PREVIEW CHAT COLOR **/
 
-/** TEMPORARY SCROLL ANCHOR FIX **/
+/** Shoutbox Scroll Fix **/
 var shoutbox = document.getElementById("taigachat_box")
-shoutbox.style.cssText = "overflow-anchor: none; height: " + shoutbox.style.height + "px;";
-/** END OF SCROLL ANCHOR FIX **/
+shoutbox.style.overflowAnchor = "none";
+shoutbox.style.overflowX = "hidden";
