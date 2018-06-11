@@ -1,9 +1,12 @@
-# SGM-Chrome-Extension
+# SGM+ Repository (Firefox & Chrome Extension)
 
-Additional features made available for SeriousGMOD Forum (http://seriousgmod.com).
+This is an extension built for SeriousGMOD Forum (http://seriousgmod.com).
 
-###### The extension is available at Chrome web store:
+###### Chrome Web Store:
 https://chrome.google.com/webstore/detail/seriousgmod-shoutbox-exte/dmbpihmdkiieiknjnlgebnacmleljcao
 
-###### For more information:
+###### Firefox Add-ons:
+https://addons.mozilla.org/en-GB/firefox/addon/seriousgmod-shoutbox-extended/?src=ss
+
+###### Discuss here:
 http://www.seriousgmod.com/threads/extension-shoutbox-now-supports-firefox.24821/

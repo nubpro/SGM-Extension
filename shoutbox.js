@@ -5,7 +5,7 @@ var maxShoutboxHeight = "635px";
 var button  = document.createElement("button")
 button.setAttribute("class", "button taigachat_bbcode xenForoSkin")
 
-var iconURL = chrome.extension.getURL("icon.png")
+var iconURL = chrome.extension.getURL("images/resize.png")
 var icon =  document.createElement("span")
 icon.setAttribute("class", "shoutboxHandle")
 icon.style.backgroundImage = "url(" + iconURL + ")"
