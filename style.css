@@ -15,14 +15,20 @@
 	cursor: s-resize;
 }
 
+.steamProfileWrapper {
+	margin: 8px -5px -2px !important;
+}
+
 .steamBadge {
 	border-radius: 4px;
 	background: #2e2e2e;
 	font-size: 13px;
 	overflow: hidden;
+	line-height: normal;
+	max-width: 160px;
+	transition: all 500ms;
 	
-	text-align: left !important;
-	margin: 8px -5px -2px !important;
+	text-align: left !important; /** Leave it here **/
 }
 	
 .steamBadge-top {
@@ -73,7 +79,8 @@
 	border-radius: 3px;
 }
 
-.steamBadge-name a:link, a:visited {
+.steamBadge-name a:link,
+.steamBadge-name a:visited {
 	color: #eee !important;
 }
 	.steamBadge-name a:hover {
