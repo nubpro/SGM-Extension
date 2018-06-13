@@ -1,6 +1,6 @@
 {
   "name": "sgm-chrome-extension",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Extra features for SGM Community Forum (www.seriousgmod.com)",
   "scripts": {
     "dev": "webextension-toolbox dev",
