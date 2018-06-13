@@ -1,0 +1,62 @@
+{
+  "name": "__MSG_appName__",
+  "short_name": "__MSG_appShortName__",
+  "description": "__MSG_appDescription__",
+  "version": "2.0.2",
+  "manifest_version": 2,
+  "default_locale": "en",
+  "icons": {
+    "16": "images/icon-16.png",
+    "128": "images/icon-128.png"
+  },
+  "web_accessible_resources": [
+    "images/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.seriousgmod.com/*"
+      ],
+      "css": [
+        "styles/style.css"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "*://*.seriousgmod.com/*"
+      ],
+      "js": [
+        "scripts/steamBadge.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "*://*.seriousgmod.com/"
+      ],
+      "js": [
+        "scripts/shoutboxHeightHandle.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "*://*.seriousgmod.com/",
+        "*://*.seriousgmod.com/chat/*"
+      ],
+      "js": [
+        "scripts/shoutboxGlobalMods.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "permissions": [
+    "storage",
+    "https://sgmod.ext.steam.zikeji.com/"
+  ]
+}
