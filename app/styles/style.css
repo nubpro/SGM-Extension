@@ -130,10 +130,20 @@
 }
 
 .steamBadge-supplementary {
+    transition: opacity .2s ease-in-out;
     font-size: 11px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    opacity: 0;
+}
+
+.steamBadge:hover .steamBadge-supplementary {
+     opacity: 1;
+}
+
+.steamBadge-profile .steamBadge-supplementary {
+    opacity: 1;
 }
 
 .steamBadge-profile, .steamBadge-profile:hover {
