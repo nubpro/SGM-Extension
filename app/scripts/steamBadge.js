@@ -3,6 +3,7 @@ import Steam from './lib/steam';
 const main = async function () {
   const steamIDs = [];
   const steamIconSrc = browser.extension.getURL('images/steam.png');
+  const isMemberPage = new URL(document.location.href).pathname.startsWith('/members/');
   const elements = document.querySelectorAll('a[href*="http://steamcommunity.com/profiles/"] img[src="styles/default/steam/steam_16.png"]');
 
   for (let element of elements) {
@@ -26,9 +27,9 @@ const main = async function () {
     <div class="steamBadge-right">
         <div class="steamBadge-name" title="${profile.nickname}"><a href="${profile.profileUrl}" target="_blank">${profile.nickname}</a></div>
         <div class="steamBadge-activity"><span class="steamState-${profile.personaState.state}">${profile.personaState.stateText}</span></div>
+        <div class="steamBadge-supplementary steamState-${profile.personaState.state}">${profile.gameTitle ? profile.gameTitle : profile.offline ? `Last Online: ${profile.lastLogOff}` : '&nbsp;'}</div>
     </div>
 </div>
-<div class="steamBadge-supplementary steamState-${profile.personaState.state}">${profile.gameTitle ? profile.gameTitle : profile.offline ? `Online: ${profile.lastLogOff}` : ' '}</div>
 `;
 
       for (let steamProfileWrapperLinkImage of steamProfileWrapperLinkImages) {
@@ -38,6 +39,9 @@ const main = async function () {
         steamProfileWrapper.removeChild(steamProfileWrapperLink);
 
         steamProfileWrapper.classList.add('steamBadge');
+        if (!isMemberPage && (profile.nickname.length > 20 || (profile.gameTitle && profile.gameTitle.length > 20))) steamProfileWrapper.classList.add('longUserName');
+        if (isMemberPage) steamProfileWrapper.classList.add('steamBadge-profile');
+
         steamProfileWrapper.insertAdjacentHTML('beforeend', steamProfileWrapperReplacement);
       }
     }
