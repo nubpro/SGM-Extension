@@ -11,7 +11,7 @@ class shoutboxHeightHandle {
 
   async init() {
     // load the saved shoutbox height from the extension storage
-    const data = await browser.storage.sync.get('shoutboxHeight');
+    const data = await browser.storage.local.get('shoutboxHeight');
     this.height = data.shoutboxHeight || shoutboxHeightHandle.minShoutboxHeight;
 
     // wait for the box to finish loading
@@ -99,7 +99,7 @@ class shoutboxHeightHandle {
   async handleMouseUp() {
     if (this.resizing) {
       this.resizing = false;
-      await browser.storage.sync.set({ shoutboxHeight: parseInt(this.shoutbox.style.height.slice(0, -2)) });
+      await browser.storage.local.set({ shoutboxHeight: parseInt(this.shoutbox.style.height.slice(0, -2)) });
     }
   }
 }
