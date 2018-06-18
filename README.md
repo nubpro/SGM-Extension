@@ -12,7 +12,7 @@ https://addons.mozilla.org/en-GB/firefox/addon/seriousgmod-shoutbox-extended/?sr
 http://www.seriousgmod.com/threads/extension-shoutbox-now-supports-firefox.24821/
 
 
-## Install
+## Install Dependencies
 
 	$ npm install
 
@@ -30,9 +30,9 @@ http://www.seriousgmod.com/threads/extension-shoutbox-now-supports-firefox.24821
     npm run build opera
     npm run build edge
 
-## Environment
+## Contributing
 
-The build tool also defines a variable named `process.env.NODE_ENV` in your scripts. 
+* [See Info](https://github.com/nubpro/SGM-Extension/blob/master/CONTRIBUTING.md) 
 
 ## Docs
 
