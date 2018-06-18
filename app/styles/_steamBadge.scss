@@ -1,0 +1,175 @@
+.steamBadge {
+  transition: all 0.2s ease-in-out;
+
+  position: relative;
+  z-index: 9;
+  height: 52px;
+
+  border-radius: 4px;
+  background: #2e2e2e;
+  font-size: 13px;
+  overflow: hidden;
+
+  text-align: left !important;
+
+  margin: 8px -14px -10px !important;
+  border: 4px solid rgb(32, 32, 32);
+
+  &:hover {
+    height: 72px;
+    margin-right: -96px !important;
+  }
+
+  &.longUserName:hover {
+    margin-right: -176px !important;
+  }
+
+  .steamBadge-top {
+    background: #2b2a2a;
+    text-align: center;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.12) 12%, rgba(0, 0, 0, 0) 100%);
+    position: relative;
+    transition: background 500ms;
+
+    &:hover {
+      background: #373737;
+
+      img {
+        opacity: 1;
+      }
+    }
+
+    a {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .steamBadge-content {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 5px 7px;
+  }
+
+  .steamBadge-left {
+    flex: 0.3717 0;
+    /*flex-basis: 29px;*/
+    align-self: self-start;
+  }
+
+  &:hover .steamBadge-left {
+    flex-grow: 0.3453;
+  }
+
+  &.longUserName:hover .steamBadge-left {
+    flex-grow: 0.2212;
+  }
+
+  .steamBadge-right {
+    flex: 1;
+    padding-left: 5px;
+    overflow: hidden;
+  }
+
+  .steamBadge-avatar {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 3px;
+  }
+
+  .steamBadge-name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    a {
+      &:link, &:visited {
+        color: #eee !important;
+      }
+      &:hover {
+        color: #fff !important;
+        text-decoration: none !important;
+      }
+    }
+  }
+
+  .steamBadge-activity {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .steamBadge-logo {
+    width: 11px;
+    display: block;
+    margin: 0 auto;
+    padding: 3px 0;
+    opacity: 0.75;
+  }
+
+  .steamBadge-supplementary {
+    transition: opacity .2s ease-in-out;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  &:hover .steamBadge-supplementary {
+    opacity: 1;
+  }
+
+
+  &.steamBadge-profile .steamBadge-supplementary {
+    opacity: 1;
+  }
+
+  &.steamBadge-profile, &.steamBadge-profile:hover {
+    height: 72px;
+    margin-bottom: 0 !important;
+  }
+
+  &.steamBadge-profile {
+    .steamBadge-left {
+      flex: 0 0 48px;
+      align-self: self-start;
+    }
+    &:hover .steamBadge-left {
+      flex-grow: 0 !important;
+    }
+  }
+
+  @media (max-width: 800px) {
+    position: relative;
+    bottom: 5px;
+    left: 5px;
+    
+    height: 72px;
+    margin-bottom: 0 !important;
+
+    &:hover {
+      height: 72px;
+      margin-bottom: 0 !important;
+    }
+
+    .steamBadge-supplementary {
+      opacity: 1;
+    }
+
+    .steamBadge-left {
+      flex: 0 0 48px;
+      align-self: self-start;
+    }
+
+    &:hover .steamBadge-left {
+      flex-grow: 0 !important;
+    }
+  }
+}
+
+@import 'steamBadgeStates';

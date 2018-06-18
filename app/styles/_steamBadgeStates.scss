@@ -1,0 +1,14 @@
+$states-list: #898989 #57cbde #57cbde #57cbde #57cbde #57cbde #57cbde #90ba3c;
+
+// generate the state colors
+@for $i from 1 through length($states-list) {
+  $state-color: nth($states-list, $i);
+
+  @if (length($states-list) == $i) {
+    $i: 10000;
+  }
+
+  .steamState-#{$i - 1} {
+    color: $state-color;
+  }
+}
