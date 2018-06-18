@@ -64,7 +64,7 @@
   &:hover .steamBadge-left {
     flex-grow: 0.3453;
   }
-  
+
   &.longUserName:hover .steamBadge-left {
     flex-grow: 0.2212;
   }
@@ -124,6 +124,7 @@
     opacity: 1;
   }
 
+
   &.steamBadge-profile .steamBadge-supplementary {
     opacity: 1;
   }
@@ -138,6 +139,33 @@
       flex: 0 0 48px;
       align-self: self-start;
     }
+    &:hover .steamBadge-left {
+      flex-grow: 0 !important;
+    }
+  }
+
+  @media (max-width: 800px) {
+    position: relative;
+    bottom: 5px;
+    left: 5px;
+    
+    height: 72px;
+    margin-bottom: 0 !important;
+
+    &:hover {
+      height: 72px;
+      margin-bottom: 0 !important;
+    }
+
+    .steamBadge-supplementary {
+      opacity: 1;
+    }
+
+    .steamBadge-left {
+      flex: 0 0 48px;
+      align-self: self-start;
+    }
+
     &:hover .steamBadge-left {
       flex-grow: 0 !important;
     }
