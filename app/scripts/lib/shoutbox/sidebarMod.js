@@ -40,7 +40,9 @@ class shoutboxSidebarMod {
       helpers.runScriptPageContext(`XenForo.activate(document.querySelector('.section.threadList'));`);
     } else {
       this.sidebar.appendChild(threadList);
-      // no need to run the activate script because it'll get run when the page finishes loading
+      window.addEventListener('load', () => {
+        helpers.runScriptPageContext(`XenForo.activate(document.querySelector('.section.threadList'));`)
+      });
     }
   }
 }
