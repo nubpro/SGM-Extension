@@ -1,4 +1,5 @@
 import elementReady from 'element-ready';
+import helpers from '../helpers';
 
 class shoutboxSidebarMod {
   constructor() {
@@ -32,10 +33,14 @@ class shoutboxSidebarMod {
     const oldThreadList = document.querySelector('.section.threadList');
     const threadList = this.document.querySelector('.section.threadList');
 
+    threadList.querySelectorAll('a').forEach(el => el.target = '_blank');
+
     if (oldThreadList) {
       this.sidebar.replaceChild(threadList, oldThreadList);
+      helpers.runScriptPageContext(`XenForo.activate(document.querySelector('.section.threadList'));`);
     } else {
       this.sidebar.appendChild(threadList);
+      // no need to run the activate script because it'll get run when the page finishes loading
     }
   }
 }
