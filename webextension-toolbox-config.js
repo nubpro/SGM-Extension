@@ -1,34 +1,16 @@
 const { resolve } = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const SuppressChunksPlugin = require('suppress-chunks-webpack-plugin');
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = {
   webpack: (config, env) => {
-
-    // need to remove the webextensions-toolbox CopyPlugin and add our own ignoring scss files.
-    const plugin = config.plugins.find(plugin => plugin.constructor.name === 'Object' && plugin.apply);
-    config.plugins.splice(config.plugins.indexOf(plugin), 1);
-    config.plugins.push(new CopyPlugin([
-      {
-        context: resolve(env.src),
-        from: resolve(env.src, '**/*'),
-        ignore: ['**/*.js', '**/*.json', '**/*.scss', '**/*.scss'],
-        to: resolve(env.target.replace('[vendor]', env.vendor))
-      },
-      {
-        context: resolve(env.src),
-        from: resolve(env.src, '_locales/**/*.json'),
-        to: resolve(env.target.replace('[vendor]', env.vendor))
-      }
-    ]));
+    const target = env.target.replace('[vendor]', env.vendor);
 
     // need to add an entrypoint for our main.css
     const entries = config.entry.bind({});
     config.entry = () => {
       const out = entries();
-      // our sass to css entry for style.css, be sure if you change/add to these to update the SuppressChunksPlugin config as well
       out['styles/style'] = [resolve(env.src, 'styles/style.scss')];
       return out;
     };
@@ -46,17 +28,36 @@ module.exports = {
       chunkFilename: '[id].css'
     }));
 
-    // optimize CSS assets
-    config.plugins.push(new OptimizeCssAssetsPlugin({
-      cssProcessor: require('cssnano'),
-      cssProcessorOptions: { discardComments: { removeAll: true } },
-      canPrint: true
-    }));
+    if (process.env.NODE_ENV === 'production') {
+      // optimize CSS assets
+      config.plugins.push(new OptimizeCssAssetsPlugin({
+        cssProcessor: require('cssnano'),
+        cssProcessorOptions: { discardComments: { removeAll: true } },
+        canPrint: true
+      }));
 
-    // uses the entry name from from entries to suppress the .js and .js.map
-    config.plugins.push(new SuppressChunksPlugin.default([
-      { name: 'styles/style', match: /\.(js|js\.map)$/ }
-    ]));
+      const ZipPlugin = config.plugins.find(plugin => plugin.constructor ? plugin.constructor.name === 'ZipPlugin' : false);
+
+      config.plugins.push(new FileManagerPlugin({
+        onEnd: [
+          {
+            delete: [
+              `${target}/styles/**/*.{sass,scss,js,map}`
+            ]
+          },
+          {
+            archive: [
+              {
+                source: target,
+                destination: `packages/${ZipPlugin.options.filename}`
+              }
+            ]
+          }
+        ]
+      }));
+
+      config.plugins.splice(config.plugins.indexOf(ZipPlugin), 1); // remove zip plugin
+    }
 
     return config;
   }
