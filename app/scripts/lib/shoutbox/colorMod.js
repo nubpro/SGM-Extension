@@ -1,6 +1,4 @@
 import elementReady from 'element-ready';
-
-;
 import removed from 'removed';
 
 class shoutboxColorMod {
