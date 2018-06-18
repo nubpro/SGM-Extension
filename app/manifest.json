@@ -13,6 +13,11 @@
   "web_accessible_resources": [
     "images/*"
   ],
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
   "content_scripts": [
     {
       "matches": [
@@ -40,6 +45,16 @@
       ],
       "js": [
         "scripts/shoutboxHeightHandle.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "*://*.seriousgmod.com/chat/*"
+      ],
+      "js": [
+        "scripts/shoutboxSidebarMod.js"
       ],
       "run_at": "document_start",
       "all_frames": false
