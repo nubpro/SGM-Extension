@@ -4,7 +4,7 @@
   "description": "Extra features for SGM Community Forum (www.seriousgmod.com)",
   "scripts": {
     "dev": "webextension-toolbox dev",
-    "build": "webextension-toolbox build"
+    "build": "webextension-toolbox build --no-minimize"
   },
   "devDependencies": {
     "axios": "^0.18.0",
