@@ -50,7 +50,7 @@ class steamBadge {
     <div class="steamBadge-right">
         <div class="steamBadge-name" title="${profile.nickname}"><a href="${profile.profileUrl}" target="_blank">${profile.nickname}</a></div>
         <div class="steamBadge-activity"><span class="steamState-${profile.personaState.state}">${profile.personaState.stateText}</span></div>
-        <div class="steamBadge-supplementary steamState-${profile.personaState.state}">${profile.gameTitle ? profile.gameTitle : profile.offline ? `Last Online: ${profile.lastLogOff}` : '&nbsp;'}</div>
+        <div class="steamBadge-supplementary steamState-${profile.personaState.state}">${profile.gameTitle ? profile.gameTitle : profile.offline && profile.lastLogOff ? `Last Online: ${profile.lastLogOff}` : '&nbsp;'}</div>
     </div>
 </div>`;
   }
